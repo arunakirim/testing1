@@ -11,6 +11,7 @@ jobs:
       - name: lint update
         run: npm run lint
   build:
+    needs: lint
     runs-on: ubuntu-latest
     steps:
       - name: Get Actions
@@ -20,6 +21,7 @@ jobs:
       - name: Build the tool
         run: npm run build
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Get Actions

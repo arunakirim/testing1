@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Build the tool
         run: npm run build
- deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Get Actions

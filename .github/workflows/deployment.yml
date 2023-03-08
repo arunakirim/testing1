@@ -1,7 +1,7 @@
 name: Github Actions Deployments
 on : push
 jobs:
-  deploy:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Get Actions
@@ -10,8 +10,19 @@ jobs:
         run: npm ci
       - name: lint update
         run: npm run lint
+ build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Actions
+        uses: actions/checkout@v3
       - name: Build the tool
         run: npm run build
+ deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Actions
+        uses: actions/checkout@v3
       - name: DEployment the application
         run: echo "Deploying the application"
+
 
